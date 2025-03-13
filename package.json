@@ -34,7 +34,6 @@
     "test": "tests"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "ember build --environment=production",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
