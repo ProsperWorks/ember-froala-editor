@@ -17,11 +17,12 @@ import 'froala-editor/css/froala_editor.min.css';
 const config = getOwnConfig();
 
 // Add ALI specific plugins at build & run time
-importSync(`froala-editor/js/plugins/link.min.js`);
-importSync(`froala-editor/js/plugins/quote.min.js`);
-importSync(`froala-editor/js/plugins/lists.min.js`);
-importSync(`froala-editor/js/plugins/image.min.js`);
-importSync(`froala-editor/js/plugins/url.min.js`);
+// Note: DO NOT USE backticks (template strings), use ' (normal strings)
+importSync('froala-editor/js/plugins/link.min.js');
+importSync('froala-editor/js/plugins/quote.min.js');
+importSync('froala-editor/js/plugins/lists.min.js');
+importSync('froala-editor/js/plugins/image.min.js');
+importSync('froala-editor/js/plugins/url.min.js');
 
 for (const plugin of config.plugins.css) {
   importSync(`froala-editor/css/plugins/${plugin}`);
