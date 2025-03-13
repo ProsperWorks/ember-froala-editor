@@ -15,9 +15,14 @@ import 'froala-editor/css/froala_editor.min.css';
 //       because `import()` and `importSync()` will include all files
 //       beyond the static part of the path.
 const config = getOwnConfig();
-for (const plugin of config.plugins.js) {
-  importSync(`froala-editor/js/plugins/${plugin}`);
-}
+
+// Add ALI specific plugins at build & run time
+importSync(`froala-editor/js/plugins/link.min.js`);
+importSync(`froala-editor/js/plugins/quote.min.js`);
+importSync(`froala-editor/js/plugins/lists.min.js`);
+importSync(`froala-editor/js/plugins/image.min.js`);
+importSync(`froala-editor/js/plugins/url.min.js`);
+
 for (const plugin of config.plugins.css) {
   importSync(`froala-editor/css/plugins/${plugin}`);
 }
