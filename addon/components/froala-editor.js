@@ -27,9 +27,11 @@ importSync('froala-editor/js/plugins/url.min.js');
 for (const plugin of config.plugins.css) {
   importSync(`froala-editor/css/plugins/${plugin}`);
 }
-for (const plugin of config.third_party.js) {
-  importSync(`froala-editor/js/third_party/${plugin}`);
-}
+
+// Add ALI specific third parties at build & run time
+
+// No third party needed at the moment.
+
 for (const plugin of config.third_party.css) {
   importSync(`froala-editor/css/third_party/${plugin}`);
 }
