@@ -23,6 +23,7 @@ importSync('froala-editor/js/plugins/quote.min.js');
 importSync('froala-editor/js/plugins/lists.min.js');
 importSync('froala-editor/js/plugins/image.min.js');
 importSync('froala-editor/js/plugins/url.min.js');
+importSync('froala-editor/js/plugins/paragraph_format.min.js');
 
 for (const plugin of config.plugins.css) {
   importSync(`froala-editor/css/plugins/${plugin}`);
