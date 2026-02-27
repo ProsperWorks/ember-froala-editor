@@ -2,30 +2,28 @@ import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { isHTMLSafe } from '@ember/template';
-import { getOwnConfig, importSync } from '@embroider/macros';
 import Component from '@glimmer/component';
 import { froalaArg } from '../helpers/froala-arg';
 import { froalaHtml } from '../helpers/froala-html';
 import FroalaEditor from 'froala-editor';
-import 'froala-editor/css/froala_editor.min.css';
 
-// Import optional Froala Editor assets
-// Note: Importing this way to minimize ember-auto-import from including
-//       more assets than what might be needed into the build output
-//       because `import()` and `importSync()` will include all files
-//       beyond the static part of the path.
-const config = getOwnConfig();
+// === MONKEY PATCH BEGIN ======================================================
 
-// Add ALI specific plugins at build & run time
-// Note: DO NOT USE backticks (template strings), use ' (normal strings)
-importSync('froala-editor/js/plugins/image.min.js');
-importSync('froala-editor/js/plugins/link.min.js');
-importSync('froala-editor/js/plugins/lists.min.js');
-importSync('froala-editor/js/plugins/paragraph_format.min.js');
-importSync('froala-editor/js/plugins/quote.min.js');
-importSync('froala-editor/js/plugins/url.min.js');
+// All the importSync calls have been removed from here. They are detected by
+// ember-auto-import which then includes every possible Froala plugin. Some of
+// these plugins can't be used by us, since they contain code that would violate
+// Chrome Web Store policy for browser extensions.
+//
+// Rather than rely on ember-froala-editor's config system to specify and load
+// plugins, we hardcode an import list inside our own project.
+//
+// This probably won't be addressed until ember-froala-editor v5+, which is
+// projected to be a full rewrite to a v2 addon and give more control over the
+// froala-editor config.
+//
+// https://github.com/froala/ember-froala-editor/issues/164
 
-importSync('froala-editor/css/plugins/image.min.css');
+// === MONKEY PATCH END ========================================================
 
 // Re-export FroalaEditor so those who extend the component
 // can also access the FroalaEditor class at the same time
