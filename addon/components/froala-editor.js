@@ -18,30 +18,14 @@ const config = getOwnConfig();
 
 // Add ALI specific plugins at build & run time
 // Note: DO NOT USE backticks (template strings), use ' (normal strings)
-importSync('froala-editor/js/plugins/link.min.js');
-importSync('froala-editor/js/plugins/quote.min.js');
-importSync('froala-editor/js/plugins/lists.min.js');
 importSync('froala-editor/js/plugins/image.min.js');
-importSync('froala-editor/js/plugins/url.min.js');
+importSync('froala-editor/js/plugins/link.min.js');
+importSync('froala-editor/js/plugins/lists.min.js');
 importSync('froala-editor/js/plugins/paragraph_format.min.js');
+importSync('froala-editor/js/plugins/quote.min.js');
+importSync('froala-editor/js/plugins/url.min.js');
 
-for (const plugin of config.plugins.css) {
-  importSync(`froala-editor/css/plugins/${plugin}`);
-}
-
-// Add ALI specific third parties at build & run time
-
-// No third party needed at the moment.
-
-for (const plugin of config.third_party.css) {
-  importSync(`froala-editor/css/third_party/${plugin}`);
-}
-for (const language of config.languages) {
-  importSync(`froala-editor/js/languages/${language}`);
-}
-for (const theme of config.themes) {
-  importSync(`froala-editor/css/themes/${theme}`);
-}
+importSync('froala-editor/css/plugins/image.min.css');
 
 // Re-export FroalaEditor so those who extend the component
 // can also access the FroalaEditor class at the same time
