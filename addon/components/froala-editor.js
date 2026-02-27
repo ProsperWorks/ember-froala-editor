@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { froalaArg } from '../helpers/froala-arg';
 import { froalaHtml } from '../helpers/froala-html';
 import FroalaEditor from 'froala-editor';
+import 'froala-editor/css/froala_editor.min.css';
 
 // === MONKEY PATCH BEGIN ======================================================
 
