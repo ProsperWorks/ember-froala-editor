@@ -6,10 +6,14 @@ import Component from '@glimmer/component';
 import { froalaArg } from '../helpers/froala-arg';
 import { froalaHtml } from '../helpers/froala-html';
 import FroalaEditor from 'froala-editor';
-import 'froala-editor/css/froala_editor.min.css';
+// === MONKEY PATCH BEGIN ======================================================
+//
+// Removed css import
+//
+// === MONKEY PATCH END ========================================================
 
 // === MONKEY PATCH BEGIN ======================================================
-
+//
 // All the importSync calls have been removed from here. They are detected by
 // ember-auto-import which then includes every possible Froala plugin. Some of
 // these plugins can't be used by us, since they contain code that would violate
@@ -23,7 +27,7 @@ import 'froala-editor/css/froala_editor.min.css';
 // froala-editor config.
 //
 // https://github.com/froala/ember-froala-editor/issues/164
-
+//
 // === MONKEY PATCH END ========================================================
 
 // Re-export FroalaEditor so those who extend the component

@@ -1,4 +1,8 @@
 import templateOnly from '@ember/component/template-only';
-import 'froala-editor/css/froala_style.min.css';
+// === MONKEY PATCH BEGIN ======================================================
+//
+// Removed css import
+//
+// === MONKEY PATCH END ========================================================
 
 export default templateOnly();
